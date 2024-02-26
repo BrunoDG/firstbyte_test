@@ -14,3 +14,4 @@ Sentry.init({
 
 const root = createRoot(document.getElementById("react-app"));
 root.render(<App />);
+
