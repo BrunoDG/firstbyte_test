@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Recipe, Ingredient, Restaurant, IngredientThroughRecipe
-from .serializers import RecipeSerializer, IngredientSerializer, RestaurantSerializer, IngredientThroughRecipeSerializer
+from .models import Recipe, Ingredient, Restaurant
+from .serializers import RecipeSerializer, IngredientSerializer, RestaurantSerializer
 
 # Create your views here.
 class RecipeListView(generics.ListAPIView):
@@ -23,11 +23,3 @@ class IngredientView(generics.RetrieveAPIView):
 class RestaurantListView(generics.ListAPIView):
     queryset = Restaurant.objects.all()
     serializer_class = RestaurantSerializer
-
-class IngredientThroughRecipeListView(generics.ListCreateAPIView):
-    queryset = IngredientThroughRecipe.objects.all()
-    serializer_class = IngredientThroughRecipeSerializer
-
-class IngredientThroughRecipeDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = IngredientThroughRecipe.objects.all()
-    serializer_class = IngredientThroughRecipeSerializer
